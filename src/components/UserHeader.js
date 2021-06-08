@@ -18,8 +18,11 @@ class UserHeader extends React.Component {
     }
 }
 
+// Map state to props is really for putting any logic that we don't want to have
+// inside of the component itself
+// This allows our components to be much more reusable
 const mapStateToProps = (state, ownProps) => {
-    return {users: state.users.find(user => user.id === ownProps.userId)}
+    return {user: state.users.find(user => user.id === ownProps.userId)}
 }
 
 export default connect(mapStateToProps, {fetchUser})(UserHeader);
